@@ -20,10 +20,5 @@ describe("Database", ()->
         done()
       ).catch(done)
     )
-
-    it("#Log.record", (done)->
-      _Log.record("test", "/api/asdsad")
-      done()
-    )
   )
 )

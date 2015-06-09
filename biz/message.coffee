@@ -5,3 +5,7 @@ class Message extends Base
 
   post: (req, resp, next)->
 
+  get: (req, resp, next)->
+    resp.sendStatus(200)
+
+module.exports = new Message()

@@ -10,7 +10,9 @@ isDev = config.develop
 
 redisClient = require('./db-connect').redis_conn()
 
-Log = require './bean/log'
+LogBean = require './bean/log'
+
+Log = require './log'
 
 router = require('./router')
 
@@ -31,23 +33,34 @@ isNoAuthenticationPath = (path, method)->
   return false
 
 #是否为验证用户
-isAuthenticationUser = (token)-> redisClient.get(token)
+isAuthenticationUser = (token, cb)-> redisClient.get(token, (error, uid)->
+  cb(error, uid)
+)
 
 module.exports = (req, resp, next)->
   # 开发环境
-  #return next() if isDev
+  return next() if isDev
 
   # 免验证的api接口
   return next() if isNoAuthenticationPath(req.path, req.method)
 
   #保存操作日志
-  if userid = isAuthenticationUser(req.headers.private_token)
-    Log.save({
-      uid: userid
-      api: req.url
-      body: ""
-    })
-    return next()
+  isAuthenticationUser(req.headers.private_token, (error, uid)->
+    if error
+      Log.error(error)
+      return resp.status(503)
 
-  #拒绝操作
-  resp.status(403).end()
+    if uid
+      LogBean.save({
+        uid: uid
+        api: req.url
+        body: ""
+      })
+      return next()
+
+    #拒绝操作
+    resp.status(403).end()
+
+  )
+
+
