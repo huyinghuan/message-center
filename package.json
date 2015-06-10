@@ -14,6 +14,7 @@
     "moment": "^2.10.3",
     "multer": "",
     "mysql": "^2.7.0",
+    "path-to-regexp": "^1.2.0",
     "redis": "^0.12.1",
     "uuid": "^2.0.1",
     "water-pit": "0.0.3-2"

@@ -53,7 +53,6 @@ describe("Redis", ->
   )
 
   describe("#Save 一次性保存多个值", ->
-
     it("直接保存json对象", (done)->
       client.mset("a", "1", "b", 2)
       done()
@@ -77,6 +76,20 @@ describe("Redis", ->
         done()
       )
 
+    )
+  )
+
+  describe("保存数组", ->
+    it("存", (done)->
+      client.lpush("message:weixin", JSON.stringify({a:1}))
+      client.lpush("message:weixin", JSON.stringify({a:2}))
+      done()
+    )
+    it("取", (done)->
+      client.lpop("message:weixin", (error, result)->
+        message = JSON.parse(result)
+        message.a.should.eql(2)
+      )
     )
   )
 )

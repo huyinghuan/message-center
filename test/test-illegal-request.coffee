@@ -3,7 +3,7 @@ assert = require 'assert'
 _async = require 'async'
 request = require 'request'
 
-describe.only("测试 权限请求", ->
+describe("测试 权限请求", ->
 
   it("免权限接口 /api/user, post, 通过", (done)->
     request.post("http://localhost:3000/api/user", {form: {

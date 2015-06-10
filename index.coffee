@@ -6,7 +6,7 @@ _multer = require 'multer'
 _Waterpit = require('water-pit').Waterpit
 #路由映射
 _RouterMap = require('./router')
-_illeageRequest = require './illegal-request'
+_illeageRequest = require './biz/illegal-request'
 
 express = require 'express'
 express_session = require 'express-session'
