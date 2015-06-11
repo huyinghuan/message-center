@@ -24,4 +24,4 @@ test = ->
     WeiXinDispacther.push({a: new Date().getTime()}, (statusCode)->)
   , 1000)
 
-test()
+#test()

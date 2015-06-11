@@ -18,7 +18,7 @@ class Weixin extends Base
   ###
     message消息体
     {
-      toUser: {string} #userid, 多个userid使用 | 分割开来
+      touser: {string} #userid, 多个userid使用 | 分割开来
       content: {string} #消息内容
     }
   ###

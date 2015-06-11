@@ -1,4 +1,5 @@
 Base = require('water-pit').Base
+path = require 'path'
 
 redisClient = require('../db-connect')
 

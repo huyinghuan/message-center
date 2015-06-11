@@ -25,5 +25,6 @@ module.exports =
     weixin: "message:weixin"
 
   weixin:
+    agentid: 12
     corpid: "wx79049864f9856554"
     corpsecret: "Y-uLlWdtepMOWElKB-nTBGjdZaKKtIkuRvZcTFuPwbBbNdaRsS4H_n43rbeCymFS"

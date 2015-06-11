@@ -8,7 +8,7 @@
   200 : 请求响应正常
   205 : 数据在数据库中重复
   401 : 用户未认证（未登录）
-  403 : 没有接口操作权限
+  403 : 没有接口操作权限 ！！！注意！！！ 除少数接口（下文中会有说明）外，当你访问一个没有权限的接口时，都会返回这个状态码，最好做统一错误过滤。
   406 : 参数错误， 参数不符合接口要求，或者参数不合法
   500 : 服务器内部错误， 任何接口都可能返回这个状态码，因此不会在以下文档中做再次说明。
   503 : 服务器暂停服务，正在维护， 同上，任何接口都可能返回次状态码
@@ -130,3 +130,40 @@ Response:
   
 ```
 
+### 微信企业号接口
+
+给指定用户发送消息
+
+Request: (请在header 中带上API token, token的获取方式请参考 用户登陆相关文档)
+
+```
+  url: message/weixin
+  data:
+    {
+      touser: {string}  #企业号中用户id
+      content: {string} #消息内容
+    }
+```
+
+demo:
+```coffee
+      request.post(
+        {
+          url: "http://localhost:3000/api/message/weixin",
+          headers: {private_token: token}
+          formData: {touser: "huyinghuan", content: "hello This is macha test message"}
+        },
+        (error, resp, body)->
+          callback(error, resp.statusCode)
+      )
+```
+
+测试, 请查看 测试文件```test/test-message-weixin.coffee```文件
+
+Response: 响应
+
+```
+   200:  消息已被消息服务中心存储处理
+   406: 提交的消息参数有问题
+   403: 没有权限
+```
