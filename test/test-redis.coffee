@@ -6,6 +6,7 @@ redis = require 'redis'
 
 client = redis.createClient(redis_config.port, redis_config.ip)
 
+
 describe("Redis", ->
 
   describe("#set and #get", ->

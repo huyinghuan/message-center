@@ -15,8 +15,9 @@ class Message extends Base
 
     type = "unknow" if not type
 
-    return @code406(resp, "路径访问错误") if not @isExistsDispatcher(type)
+    return @code406(resp, "路径访问错误") if (not @isExistsDispatcher(type)) or type is "base"
 
+    #请求相关类型的处理消息工具
     require(path.join(dispatcherPath, type)).push(req.body, (statusCode)->
       resp.sendStatus(statusCode)
     )

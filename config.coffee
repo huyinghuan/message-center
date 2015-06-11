@@ -20,3 +20,10 @@ module.exports =
 
   #开发者模式
   develop: true
+
+  message:
+    weixin: "message:weixin"
+
+  weixin:
+    corpid: "wx79049864f9856554"
+    corpsecret: "Y-uLlWdtepMOWElKB-nTBGjdZaKKtIkuRvZcTFuPwbBbNdaRsS4H_n43rbeCymFS"
