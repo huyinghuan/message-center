@@ -3,7 +3,7 @@ async = require 'async'
 request = require 'request'
 describe("发送消息到微信", ->
 
-  it.only("发送", (done)->
+  it("发送", (done)->
     queue = []
 
     queue.push((callback)->

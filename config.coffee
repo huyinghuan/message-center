@@ -23,7 +23,7 @@ module.exports =
 
   message:
     weixin: "message:weixin"
-
+    email: "message:email"
   weixin:
     agentid: 12
     corpid: "wx79049864f9856554"
