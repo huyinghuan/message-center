@@ -2,7 +2,7 @@ Base = require './base'
 #获取黑砖窑里面的包工头
 Supervisor = require '../black-brickkiln/supervisor'
 
-#用来发微信的奴隶数量
+#用来发邮件的奴隶数量
 slaveCount = 3
 
 class Email extends Base
@@ -24,4 +24,4 @@ class Email extends Base
 
 key = require('../config').message.email
 
-module.exports = new Weixin(key)
+module.exports = new Email(key)
