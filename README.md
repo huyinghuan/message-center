@@ -167,3 +167,24 @@ Response: 响应
    406: 提交的消息参数有问题
    403: 没有权限
 ```
+
+### 邮件接口
+
+Request: (请在header 中带上API token, token的获取方式请参考 用户登陆相关文档)
+
+```
+  url: message/email
+  data:
+    {
+      to: {string}  #目标邮箱
+      subject: {string} #邮件标题
+      text: {string} #消息内容(纯文本)
+      html: {string} #消息内容（html）
+    }
+```
+
+Demo:
+
+```
+
+```

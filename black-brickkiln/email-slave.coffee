@@ -1,13 +1,15 @@
+_nodemailer = require 'nodemailer'
+_smtpTransport = require 'nodemailer-smtp-transport'
+
 redisClient = require('../db-connect').redis_conn()
 async = require 'async'
 Log = require '../log'
 config = require('../config')
+
 key = config.message.email
+_smtp = config.mail
 
-Wego = require('wego-enterprise')
-
-Message = Wego.Message
-access_token = new Wego.AccessToken(config.weixin.corpid, config.weixin.corpsecret)
+transport = _nodemailer.createTransport(_smtpTransport(_smtp))
 
 
 class EmailSlave
@@ -52,7 +54,15 @@ class EmailSlave
 
 
   send: (msg, done)->
-    self = @
+    transport.sendMail({
+        from: _smtp.auth.user,
+        to: '646344359@qq.com',
+        subject: 'hello',
+        text: 'hello world!'
+      }, (error, info)->
+      console.log error, info
+      done(error)
+    )
 
 
   #处理出错的消息

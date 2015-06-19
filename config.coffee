@@ -28,3 +28,9 @@ module.exports =
     agentid: 12
     corpid: "wx79049864f9856554"
     corpsecret: "Y-uLlWdtepMOWElKB-nTBGjdZaKKtIkuRvZcTFuPwbBbNdaRsS4H_n43rbeCymFS"
+  mail:
+    host: 'smtp.163.com'
+    port: 25
+    auth:
+      user: "XX",
+      pass: "XX"

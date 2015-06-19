@@ -9,7 +9,7 @@ Wego = require('wego-enterprise')
 Message = Wego.Message
 access_token = new Wego.AccessToken(config.weixin.corpid, config.weixin.corpsecret)
 
-weixin_token = "vRfZ5Jpv61xzviGeVm_9vr9h9WfWxoeAf8OLt2T9a1GdXMBXlDt2tWfsaCQk9ndL"
+weixin_token = ""
 
 getToken = (cb)->
   access_token.get((error, token)->
