@@ -32,5 +32,5 @@ module.exports =
     host: 'smtp.163.com'
     port: 25
     auth:
-      user: "XX",
-      pass: "XX"
+      user: "xiacijian@163.com",
+      pass: "huyinghuan"

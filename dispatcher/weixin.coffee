@@ -27,7 +27,7 @@ class Weixin extends Base
   #存入消息体
   push: (message, cb)->
     #消息校验未通过
-    return cb(406) if not @verify(message)
+    return cb(406, "参数不合法") if not @verify(message)
     #同过后给出正在处理消息
     cb(200)
     redisClient.lpush(@key, JSON.stringify(message))
