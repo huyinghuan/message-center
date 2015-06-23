@@ -25,6 +25,7 @@ module.exports =
     weixin: "message:weixin"
     email: "message:email"
     jpusher: "message:jpusher"
+    webhooks: "message:webhooks"
   weixin:
     agentid: 12
     corpid: "xxx"
