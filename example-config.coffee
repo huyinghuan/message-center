@@ -24,13 +24,17 @@ module.exports =
   message:
     weixin: "message:weixin"
     email: "message:email"
+    jpusher: "message:jpusher"
   weixin:
     agentid: 12
-    corpid: "wx79049864f9856554"
-    corpsecret: "Y-uLlWdtepMOWElKB-nTBGjdZaKKtIkuRvZcTFuPwbBbNdaRsS4H_n43rbeCymFS"
+    corpid: "xxx"
+    corpsecret: "xxx"
   mail:
     host: 'smtp.163.com'
     port: 25
     auth:
-      user: "xiacijian@163.com",
-      pass: "huyinghuan"
+      user: "xxx",
+      pass: "xxx"
+  jpush:
+    appKey: 'xxx'
+    masterKey: 'xxx'

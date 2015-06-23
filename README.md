@@ -185,6 +185,54 @@ Request: (请在header 中带上API token, token的获取方式请参考 用户�
 
 Demo:
 
+```coffee
+  request.post(
+      {
+        url: "http://localhost:3000/api/message/email",
+        headers: {private_token: token}
+        formData: {
+          to: "646344359@qq.com",
+          subject: "no title"
+          text: "hello This is macha test message"
+        }
+      },
+      (error, resp, body)->
+       # callback(error, resp.statusCode)
+        console.log error
+        console.log resp.statusCode
+        console.log body
+    )
+```
+### 手机推送接口
+
+Request: (请在header 中带上API token, token的获取方式请参考 用户登陆相关文档)
+
+```
+  url: message/jpusher
+  data:
+    device_id: {string}
+    device_type: {"ios" | "android"}
+    message:  {string}
+    data: {json}
 ```
 
+Demo
+```coffee
+  request.post(
+      {
+        url: "http://localhost:3000/api/message/jpusher",
+        headers: {private_token: token}
+        body:
+          device_id: "061e3470869"
+          device_type: "ios"
+          message: "hello world"
+          data: a: 1
+        json: true
+      },
+      (error, resp, body)->
+       # callback(error, resp.statusCode)
+        console.log error
+        console.log resp.statusCode
+        console.log body
+    )
 ```
