@@ -41,7 +41,6 @@ class WeixinSlave extends _Slave
   setToken: ->
     self = @
     getToken((token)->
-      console.log token, 99
       self.message.setToken(token)
     )
 
