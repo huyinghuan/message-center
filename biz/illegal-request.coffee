@@ -53,7 +53,7 @@ module.exports = (req, resp, next)->
       uid: "admin"
       api: req.url
       body: JSON.stringify(req.body)
-    })
+    }).then(()->)
     return next()
 
   #保存操作日志
@@ -67,7 +67,7 @@ module.exports = (req, resp, next)->
         uid: uid
         api: req.url
         body: JSON.stringify(req.body)
-      })
+      }).then(()->)
       return next()
 
     #拒绝操作
