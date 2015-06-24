@@ -20,7 +20,8 @@ module.exports =
 
   #开发者模式
   develop: true
-
+  #发送失败，重新尝试的次数
+  tryCount: 5
   message:
     weixin: "message:weixin"
     email: "message:email"

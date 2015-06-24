@@ -22,13 +22,31 @@ describe("邮件测试", ->
     )
   )
 
-  it("HTTP接口测试", ()->
+  it("HTTP接口成功测试", ()->
     request.post(
       {
         url: "http://localhost:3000/api/message/email",
         headers: {private_token: token}
         formData: {
           to: "646344359@qq.com",
+          subject: "no title"
+          text: "hello This is macha test message"
+        }
+      },
+      (error, resp, body)->
+        console.log error
+        console.log resp.statusCode
+        console.log body
+    )
+  )
+
+  it("HTTP接口失败测试", ()->
+    request.post(
+      {
+        url: "http://localhost:3000/api/message/email",
+        headers: {private_token: token}
+        formData: {
+          to2d: "646344359@qq.com",
           subject: "no title"
           text: "hello This is macha test message"
         }
