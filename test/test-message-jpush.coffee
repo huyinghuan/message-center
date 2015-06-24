@@ -7,7 +7,7 @@ token = "9cb312d0-14d1-11e5-b79b-bfa179cfc352"
 describe("JPusher 测试", ->
 
 
-  it("HTTP接口测试", ()->
+  it.only("HTTP接口测试", ()->
     request.post(
       {
         url: "http://localhost:3000/api/message/jpusher",
