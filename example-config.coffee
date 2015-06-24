@@ -1,5 +1,5 @@
 module.exports =
-  #mysql 配置
+#mysql 配置
   db:
     database:
       client: 'mysql'
@@ -10,23 +10,28 @@ module.exports =
         database: 'message_center'
     schema: 'schema'
 
-  # redis配置
+# redis配置
   redis:
     host: "127.0.0.1"
     port: 6379
 
-  #启动端口
+#启动端口
   port: 3000
 
-  #开发者模式
+#开发者模式
   develop: true
-  #发送失败，重新尝试的次数
+
+#发送失败，重新尝试的次数
   tryCount: 5
+
+  admin_token: "xxx" #仅供自己使用
+
   message:
     weixin: "message:weixin"
     email: "message:email"
     jpusher: "message:jpusher"
     webhooks: "message:webhooks"
+
   weixin:
     agentid: 12
     corpid: "xxx"
@@ -35,8 +40,8 @@ module.exports =
     host: 'smtp.163.com'
     port: 25
     auth:
-      user: "xxx",
-      pass: "xxx"
+      user: "xiacijian@163.com",
+      pass: "xx"
   jpush:
     appKey: 'xxx'
-    masterKey: 'xxx'
+    masterKey: 'xx'

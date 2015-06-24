@@ -48,6 +48,14 @@ module.exports = (req, resp, next)->
   # 免验证的api接口
   return next() if isNoAuthenticationPath(req.path, req.method)
 
+  if req.headers.private_token is config.admin_token
+    LogBean.save({
+      uid: "admin"
+      api: req.url
+      body: JSON.stringify(req.body)
+    })
+    return next()
+
   #保存操作日志
   isAuthenticationUser(req.headers.private_token, (error, uid)->
     if error
@@ -58,7 +66,7 @@ module.exports = (req, resp, next)->
       LogBean.save({
         uid: uid
         api: req.url
-        body: ""
+        body: JSON.stringify(req.body)
       })
       return next()
 
