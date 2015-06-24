@@ -21,7 +21,8 @@
     "redis": "^0.12.1",
     "request": "^2.58.0",
     "uuid": "^2.0.1",
-    "water-pit": "0.0.3-2"
+    "water-pit": "0.0.3-2",
+    "wego-enterprise": "0.0.4"
   },
   "devDependencies": {
     "coffee-script": "^1.9.3",
