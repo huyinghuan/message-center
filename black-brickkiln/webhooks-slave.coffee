@@ -4,6 +4,8 @@ async = require 'async'
 Log = require '../log'
 config = require('../config')
 
+request = require 'request'
+
 key = config.message.webhooks
 
 class WebhooksSlave
@@ -48,7 +50,21 @@ class WebhooksSlave
 
   send: (msg, done)->
     self = @
-    console.log msg
+    headers = msg.headers
+
+    option =
+      url: msg.url
+      body: msg.body
+      json: true
+
+    option.headers = msg.headers if headers
+
+    request.post(option, (error, resp, body)->
+      dealErrorMessage(error) if error
+      if resp.statusCode isnt 200
+        Log.error(body)
+    )
+
     done(null, msg)
 
 
